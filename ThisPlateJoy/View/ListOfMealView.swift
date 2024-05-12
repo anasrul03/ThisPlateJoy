@@ -10,6 +10,7 @@ import SwiftUI
 struct ListOfMealView: View {
     
     @State private var mealList: [MealModel]?
+    @State private var mealLiteList: [MealLiteModel]?
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     
     let listType: FilterTypeEnum?
@@ -23,7 +24,12 @@ struct ListOfMealView: View {
                 CardView(meal:m)
             }.navigationTitle("Plate of Joy").navigationBarItems(trailing: Image(systemName: "star")).task {
                 do{
-                    mealList = try await performAPICall(filterType: listType, endpoint: endpoint)
+                    if listType != FilterTypeEnum.firstLetter{
+                        mealLiteList = try await performLiteAPICall(filterType: listType, endpoint: endpoint) 
+                    }else{
+                        mealList = try await performAPICall(filterType: listType, endpoint: endpoint)
+                    }
+                    
                 }
                 catch PlateJoyError.invalidData{
                     print("Invalid Data")
@@ -48,8 +54,30 @@ struct ListOfMealView: View {
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {throw PlateJoyError.invalidResponse
         }
         do{
-            let mealResponse = try JSONDecoder().decode(MealsResponse.self, from: data)
-            return mealResponse.meals
+            
+                let mealResponse = try JSONDecoder().decode(MealsResponse.self, from: data)
+                return mealResponse.meals
+         
+       
+        }catch{
+            throw PlateJoyError.invalidData
+        }
+        
+    }    
+    
+    func performLiteAPICall(filterType: FilterTypeEnum?, endpoint: String?) async throws -> [MealLiteModel]? {
+        guard let url = URL(string: "\(getUrl(for: filterType))\(String(describing: endpoint))") else{
+            throw PlateJoyError.invalidURL
+        }
+        let (data, response) = try await URLSession.shared.data(from: url)
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {throw PlateJoyError.invalidResponse
+        }
+        do{
+            
+                let mealResponse = try JSONDecoder().decode(MealsLiteResponse.self, from: data)
+                return mealResponse.meals
+         
+       
         }catch{
             throw PlateJoyError.invalidData
         }

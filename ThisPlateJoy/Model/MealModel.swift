@@ -11,7 +11,7 @@ struct MealsLiteResponse: Codable {
 }
 
 struct MealModel: Codable, Hashable{
-    
+
     var idMeal: String
     var strMeal: String
     var strMealThumb: String?
@@ -22,7 +22,6 @@ struct MealModel: Codable, Hashable{
     
     
     init(idMeal: String, name: String, mealThumbnail: String, youtubeLink: String, sourceLink: String, instruction: String, area: String) {
-        
         
         self.idMeal = idMeal
         self.strMeal = name
@@ -39,7 +38,7 @@ struct MealModel: Codable, Hashable{
 }
 
 struct MealLiteModel: Codable, Hashable{
-    
+
     var idMeal: String
     var strMeal: String
     var strMealThumb: String?
@@ -47,7 +46,6 @@ struct MealLiteModel: Codable, Hashable{
     
     
     init(idMeal: String, name: String, mealThumbnail: String) {
-        
         
         self.idMeal = idMeal
         self.strMeal = name
