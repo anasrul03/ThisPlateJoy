@@ -11,7 +11,7 @@ import SwiftUI
 struct ThisPlateJoyApp: App {
     var body: some Scene {
         WindowGroup {
-            ListOfMealView()
+        MainView()
         }
     }
     

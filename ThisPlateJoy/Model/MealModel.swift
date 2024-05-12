@@ -6,6 +6,9 @@ import Foundation
 struct MealsResponse: Codable {
     let meals: [MealModel]
 }
+struct MealsLiteResponse: Codable {
+    let meals: [MealLiteModel]
+}
 
 struct MealModel: Codable, Hashable{
     
@@ -17,10 +20,10 @@ struct MealModel: Codable, Hashable{
     var strInstructions: String?
     var strArea: String?
     
-
+    
     init(idMeal: String, name: String, mealThumbnail: String, youtubeLink: String, sourceLink: String, instruction: String, area: String) {
         
-    
+        
         self.idMeal = idMeal
         self.strMeal = name
         self.strMealThumb = mealThumbnail
@@ -28,6 +31,28 @@ struct MealModel: Codable, Hashable{
         self.strSource = sourceLink
         self.strInstructions = instruction
         self.strArea = area
+        
+        
+    }
+    
+    
+}
+
+struct MealLiteModel: Codable, Hashable{
+    
+    var idMeal: String
+    var strMeal: String
+    var strMealThumb: String?
+    
+    
+    
+    init(idMeal: String, name: String, mealThumbnail: String) {
+        
+        
+        self.idMeal = idMeal
+        self.strMeal = name
+        self.strMealThumb = mealThumbnail
+        
         
         
     }
