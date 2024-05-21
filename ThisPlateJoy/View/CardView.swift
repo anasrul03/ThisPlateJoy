@@ -9,62 +9,64 @@ import Foundation
 import SwiftUI
 
 struct CardView: View {
-    let meal: Any? // Define meal as Any type
+    let meal: MealModel? // Define meal as Any type
     
     var body: some View {
         HStack {
-            if let mealModel = meal as? MealModel? {
-                // If meal is of type MealModel, display the details
-                AsyncImage(url: URL(string: mealModel?.strMealThumb ?? ""), scale: 2) { image in
+         
+    
+                AsyncImage(url: URL(string: meal?.strMealThumb ?? ""), scale: 2) { image in
                     image.resizable()
                 } placeholder: {
                     ProgressView()
                 }
-                .frame(width: 80, height: 80)
+                .frame(width: 70, height: 70)
                 .aspectRatio(contentMode: .fit)
-                .clipShape(Rectangle(), style: FillStyle())
+                .clipShape(Rectangle(), style: FillStyle()).cornerRadius(8)
                 VStack(alignment: .leading) {
-                    Text(mealModel?.strMeal ?? "Meal Name")
-                        .font(.headline)
-                    Spacer()
-                    HStack {
-                        Label(mealModel?.strArea ?? "Meal Area", systemImage: "person.3")
+                    
+                    HStack{
+                        Text(meal?.strMeal ?? "Meal Name")
+                            .font(.headline)
                         Spacer()
-                        Label(mealModel?.idMeal ?? "Meal id", systemImage: "clock")
-                            .labelStyle(.titleOnly)
+                        Menu {
+                                  Button("Copy name", systemImage: "doc.on.doc") {
+                                      UIPasteboard.general.string = meal?.strMeal                                  }
+                                  Button("Copy id", systemImage: "doc.om.doc") {
+                                      UIPasteboard.general.string = meal?.idMeal
+                                  }
+                                
+                              } label: {
+                                  Image(systemName: "ellipsis")
+                                      .foregroundColor(.blue)
+                                      .imageScale(.small)
+                              }
+                              
+
                     }
-                    .font(.caption)
+                  
+                    
+                 
+                    Text(meal?.strArea ?? "Meal Area").font(.subheadline).foregroundColor(.secondary)
+                        Spacer()
+                    HStack{
+                        Spacer()
+                        Text(meal?.idMeal ?? "Meal Area")
+
+                    }.font(.caption2).foregroundColor(.gray)
+                  
                 }
                 .padding(10)
-            } else if let mealLiteModel = meal as? MealLiteModel? {
-                // If meal is of type SimplifiedMealModel, display the simplified details
-                AsyncImage(url: URL(string: mealLiteModel?.strMealThumb ?? ""), scale: 2) { image in
-                    image.resizable()
-                } placeholder: {
-                    ProgressView()
-                }
-                .frame(width: 80, height: 80)
-                .aspectRatio(contentMode: .fit)
-                .clipShape(Rectangle(), style: FillStyle())
-                VStack(alignment: .leading) {
-                    Text(mealLiteModel?.strMeal ?? "Meal Name")
-                        .font(.headline)
-                    Spacer()
-                    HStack {
-                        Label("Unknown", systemImage: "person.3")
-                        Spacer()
-                        Label(mealLiteModel?.idMeal ?? "Meal id", systemImage: "clock")
-                            .labelStyle(.titleOnly)
-                    }
-                    .font(.caption)
-                }
-                .padding(10)
-            } else {
-                // Handle other cases or unknown types
-                Text("Invalid meal type")
-            }
+ 
         }
     }
+    func placeOrder() { }
+        func adjustOrder() { }
+        func cancelOrder() { }
+}
+
+#Preview {
+    CardView(meal: MealModel.randomMeal)
 }
 
 

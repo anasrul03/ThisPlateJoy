@@ -10,9 +10,8 @@ import SwiftUI
 struct ListOfMealView: View {
     
     @State private var mealList: [MealModel]?
-    @State private var mealLiteList: [MealLiteModel]?
     @Environment(\.defaultMinListRowHeight) var minRowHeight
-    
+    let navigationTitle: String
     let listType: FilterTypeEnum?
     let endpoint: String?
     
@@ -21,15 +20,15 @@ struct ListOfMealView: View {
             
             
             List(mealList ?? [], id: \.self){m in
-                CardView(meal:m)
-            }.navigationTitle("Plate of Joy").navigationBarItems(trailing: Image(systemName: "star")).task {
-                do{
-                    if listType != FilterTypeEnum.firstLetter{
-                        mealLiteList = try await performLiteAPICall(filterType: listType, endpoint: endpoint) 
-                    }else{
-                        mealList = try await performAPICall(filterType: listType, endpoint: endpoint)
-                    }
+                
+                NavigationLink(destination: MealDetailView(meal: m)) {
+                    CardView(meal:m)
                     
+                }
+            }.navigationTitle(navigationTitle).navigationBarItems(trailing: Image(systemName: "star")).task {
+                do{
+                    
+                    mealList = try await performAPICall(filterType: listType, endpoint: endpoint)
                 }
                 catch PlateJoyError.invalidData{
                     print("Invalid Data")
@@ -47,7 +46,7 @@ struct ListOfMealView: View {
         
     }
     func performAPICall(filterType: FilterTypeEnum?, endpoint: String?) async throws -> [MealModel]? {
-        guard let url = URL(string: "\(getUrl(for: filterType))\(String(describing: endpoint))") else{
+        guard let url = URL(string: "\(getUrl(for: filterType))\(endpoint ?? "")") else{
             throw PlateJoyError.invalidURL
         }
         let (data, response) = try await URLSession.shared.data(from: url)
@@ -55,34 +54,16 @@ struct ListOfMealView: View {
         }
         do{
             
-                let mealResponse = try JSONDecoder().decode(MealsResponse.self, from: data)
-                return mealResponse.meals
-         
-       
-        }catch{
-            throw PlateJoyError.invalidData
-        }
-        
-    }    
-    
-    func performLiteAPICall(filterType: FilterTypeEnum?, endpoint: String?) async throws -> [MealLiteModel]? {
-        guard let url = URL(string: "\(getUrl(for: filterType))\(String(describing: endpoint))") else{
-            throw PlateJoyError.invalidURL
-        }
-        let (data, response) = try await URLSession.shared.data(from: url)
-        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {throw PlateJoyError.invalidResponse
-        }
-        do{
+            let mealResponse = try JSONDecoder().decode(MealsResponse.self, from: data)
+            return mealResponse.meals
             
-                let mealResponse = try JSONDecoder().decode(MealsLiteResponse.self, from: data)
-                return mealResponse.meals
-         
-       
+            
         }catch{
             throw PlateJoyError.invalidData
         }
         
     }
+    
     
     func getUrl(for listType: FilterTypeEnum?)-> String{
         guard let type = listType else {
@@ -110,5 +91,5 @@ struct ListOfMealView: View {
 
 
 #Preview {
-    ListOfMealView(listType: FilterTypeEnum.area, endpoint: "j")
+    ListOfMealView(navigationTitle: "Recipes",listType: FilterTypeEnum.firstLetter, endpoint: "j")
 }
