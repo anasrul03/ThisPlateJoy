@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 struct ListOfMealView: View {
     
     @State private var mealList: [MealModel]?
@@ -21,7 +23,7 @@ struct ListOfMealView: View {
             
             List(mealList ?? [], id: \.self){m in
                 
-                NavigationLink(destination: MealDetailView(meal: m)) {
+                NavigationLink(destination: MealDetailView( meal: m)) {
                     CardView(meal:m)
                     
                 }
@@ -91,5 +93,9 @@ struct ListOfMealView: View {
 
 
 #Preview {
+    
+    
     ListOfMealView(navigationTitle: "Recipes",listType: FilterTypeEnum.firstLetter, endpoint: "j")
+    
+    
 }

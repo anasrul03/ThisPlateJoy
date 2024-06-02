@@ -14,6 +14,8 @@
 		7AE69F3E2BE3DF0000784578 /* ListOfMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE69F3D2BE3DF0000784578 /* ListOfMealView.swift */; };
 		7AE69F402BE3DF0100784578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AE69F3F2BE3DF0100784578 /* Assets.xcassets */; };
 		7AE69F432BE3DF0100784578 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AE69F422BE3DF0100784578 /* Preview Assets.xcassets */; };
+		7AE9B7A52C0C882E00774776 /* ListOfCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B7A42C0C882E00774776 /* ListOfCategories.swift */; };
+		7AE9B7A72C0C904800774776 /* ListByCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B7A62C0C904800774776 /* ListByCategories.swift */; };
 		7AEDFDA92BE75BE500AA79C4 /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEDFDA82BE75BE500AA79C4 /* MealModel.swift */; };
 		7AEDFDAD2BE7606400AA79C4 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEDFDAC2BE7606400AA79C4 /* CardView.swift */; };
 		7AEDFDAF2BE7A1A800AA79C4 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEDFDAE2BE7A1A800AA79C4 /* ErrorModel.swift */; };
@@ -28,6 +30,8 @@
 		7AE69F3D2BE3DF0000784578 /* ListOfMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfMealView.swift; sourceTree = "<group>"; };
 		7AE69F3F2BE3DF0100784578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7AE69F422BE3DF0100784578 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7AE9B7A42C0C882E00774776 /* ListOfCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfCategories.swift; sourceTree = "<group>"; };
+		7AE9B7A62C0C904800774776 /* ListByCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListByCategories.swift; sourceTree = "<group>"; };
 		7AEDFDA82BE75BE500AA79C4 /* MealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealModel.swift; sourceTree = "<group>"; };
 		7AEDFDAC2BE7606400AA79C4 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		7AEDFDAE2BE7A1A800AA79C4 /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 				7AE69F3D2BE3DF0000784578 /* ListOfMealView.swift */,
 				7A7D6EEB2BF0A5280002CEFD /* MainView.swift */,
 				7ABC65152BFBA0640026E423 /* MealDetails.swift */,
+				7AE9B7A42C0C882E00774776 /* ListOfCategories.swift */,
+				7AE9B7A62C0C904800774776 /* ListByCategories.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -117,6 +123,8 @@
 			dependencies = (
 			);
 			name = ThisPlateJoy;
+			packageProductDependencies = (
+			);
 			productName = ThisPlateJoy;
 			productReference = 7AE69F382BE3DF0000784578 /* ThisPlateJoy.app */;
 			productType = "com.apple.product-type.application";
@@ -145,6 +153,8 @@
 				Base,
 			);
 			mainGroup = 7AE69F2F2BE3DF0000784578;
+			packageReferences = (
+			);
 			productRefGroup = 7AE69F392BE3DF0000784578 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -175,6 +185,8 @@
 				7ABC65162BFBA0640026E423 /* MealDetails.swift in Sources */,
 				7A7D6EEE2BF106950002CEFD /* FilterTypeEnum.swift in Sources */,
 				7A7D6EEC2BF0A5280002CEFD /* MainView.swift in Sources */,
+				7AE9B7A72C0C904800774776 /* ListByCategories.swift in Sources */,
+				7AE9B7A52C0C882E00774776 /* ListOfCategories.swift in Sources */,
 				7AE69F3E2BE3DF0000784578 /* ListOfMealView.swift in Sources */,
 				7AEDFDA92BE75BE500AA79C4 /* MealModel.swift in Sources */,
 				7AEDFDAD2BE7606400AA79C4 /* CardView.swift in Sources */,
