@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A4591FF2C148A4300ECC881 /* ListByArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4591FE2C148A4300ECC881 /* ListByArea.swift */; };
+		7A4592012C148AA800ECC881 /* ListOfArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4592002C148AA800ECC881 /* ListOfArea.swift */; };
 		7A7D6EEC2BF0A5280002CEFD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7D6EEB2BF0A5280002CEFD /* MainView.swift */; };
 		7A7D6EEE2BF106950002CEFD /* FilterTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7D6EED2BF106950002CEFD /* FilterTypeEnum.swift */; };
 		7ABC65162BFBA0640026E423 /* MealDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC65152BFBA0640026E423 /* MealDetails.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A4591FE2C148A4300ECC881 /* ListByArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListByArea.swift; sourceTree = "<group>"; };
+		7A4592002C148AA800ECC881 /* ListOfArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfArea.swift; sourceTree = "<group>"; };
 		7A7D6EEB2BF0A5280002CEFD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		7A7D6EED2BF106950002CEFD /* FilterTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTypeEnum.swift; sourceTree = "<group>"; };
 		7ABC65152BFBA0640026E423 /* MealDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetails.swift; sourceTree = "<group>"; };
@@ -102,7 +106,9 @@
 				7A7D6EEB2BF0A5280002CEFD /* MainView.swift */,
 				7ABC65152BFBA0640026E423 /* MealDetails.swift */,
 				7AE9B7A42C0C882E00774776 /* ListOfCategories.swift */,
+				7A4592002C148AA800ECC881 /* ListOfArea.swift */,
 				7AE9B7A62C0C904800774776 /* ListByCategories.swift */,
+				7A4591FE2C148A4300ECC881 /* ListByArea.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -181,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A4591FF2C148A4300ECC881 /* ListByArea.swift in Sources */,
 				7AEDFDAF2BE7A1A800AA79C4 /* ErrorModel.swift in Sources */,
 				7ABC65162BFBA0640026E423 /* MealDetails.swift in Sources */,
 				7A7D6EEE2BF106950002CEFD /* FilterTypeEnum.swift in Sources */,
@@ -189,6 +196,7 @@
 				7AE9B7A52C0C882E00774776 /* ListOfCategories.swift in Sources */,
 				7AE69F3E2BE3DF0000784578 /* ListOfMealView.swift in Sources */,
 				7AEDFDA92BE75BE500AA79C4 /* MealModel.swift in Sources */,
+				7A4592012C148AA800ECC881 /* ListOfArea.swift in Sources */,
 				7AEDFDAD2BE7606400AA79C4 /* CardView.swift in Sources */,
 				7AE69F3C2BE3DF0000784578 /* ThisPlateJoyApp.swift in Sources */,
 			);

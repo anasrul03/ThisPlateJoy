@@ -16,7 +16,7 @@ struct MainView: View{
                     TabView{
                         ListOfMealView(navigationTitle: "Recipes",listType:   FilterTypeEnum.firstLetter, endpoint: "h").tabItem { Label("Home" ,systemImage: "circle.grid.3x3")}
                         ListOfCategories().tabItem { Label("Categories" ,systemImage: "tray")}
-                        ListOfMealView(navigationTitle: "Areas",listType:  FilterTypeEnum.area, endpoint: "Canadian").tabItem { Label("Area" ,systemImage: "location")}
+                        ListOfArea().tabItem { Label("Area" ,systemImage: "location")}
                         ListOfMealView(navigationTitle: "Random",listType: FilterTypeEnum.random, endpoint: nil).tabItem { Label("Setting" ,systemImage: "gear")}
                         
                     }
